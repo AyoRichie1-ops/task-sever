@@ -24,10 +24,7 @@ app.use((req, res) => {
 // db Connections and server listening
 const start = async () => {
   try {
-    await mongoose.connect(process.env.dbURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.dbURI);
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}... and db connected`);
     });
