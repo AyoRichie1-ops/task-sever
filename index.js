@@ -4,13 +4,15 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const taskRouter = require("./routes/taskRoutes");
+const cors = require("cors");
 
 // middlewares
 app.use(express.json());
+app.use(cors());
 
 // Routes
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "Welcome to Goals Api!" });
+  res.status(200).json({ message: "Welcome to Task Api!" });
 });
 
 app.use("/api/v1/tasks", taskRouter);
